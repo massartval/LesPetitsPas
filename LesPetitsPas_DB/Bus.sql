@@ -1,0 +1,5 @@
+﻿CREATE TABLE Bus(
+   Id INT NOT NULL IDENTITY,
+   DateTime DATE NOT NULL, 
+    CONSTRAINT [PK_Bus] PRIMARY KEY ([Id]) 
+);

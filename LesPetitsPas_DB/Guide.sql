@@ -1,0 +1,6 @@
+﻿CREATE TABLE Guide(
+   Id INT NOT NULL,
+   IsActive BIT,
+   PRIMARY KEY(Id),
+   FOREIGN KEY(Id) REFERENCES Person(Id)
+);

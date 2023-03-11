@@ -1,0 +1,9 @@
+﻿CREATE TABLE Person(
+   Id INT IDENTITY,
+   LastName VARCHAR(50) NOT NULL,
+   FirstName VARCHAR(50) NOT NULL,
+   Email VARCHAR(50) NOT NULL,
+   Phone1 VARCHAR(10) NOT NULL,
+   Phone2 VARCHAR(50) NOT NULL, 
+    CONSTRAINT [PK_Person] PRIMARY KEY ([Id])
+);

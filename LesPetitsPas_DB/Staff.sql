@@ -1,0 +1,8 @@
+﻿CREATE TABLE Staff(
+   BusId INT NOT NULL IDENTITY,
+   GuideId INT NOT NULL,
+   FOREIGN KEY(BusId) REFERENCES Bus(Id),
+   FOREIGN KEY(GuideId) REFERENCES Guide(Id), 
+    CONSTRAINT [PK_Staff] PRIMARY KEY ([BusId]) 
+);
+

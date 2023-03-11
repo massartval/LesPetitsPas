@@ -1,0 +1,9 @@
+﻿CREATE TABLE Child(
+   Id INT IDENTITY,
+   LastName VARCHAR(50) NOT NULL,
+   FirstName VARCHAR(50) NOT NULL,
+   BirthDate DATE NOT NULL,
+   ParentId INT NOT NULL,
+   FOREIGN KEY(ParentId) REFERENCES Parent(Id), 
+    CONSTRAINT [PK_Child] PRIMARY KEY ([Id])
+);

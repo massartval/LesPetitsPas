@@ -1,0 +1,9 @@
+﻿CREATE TABLE Address(
+   Id INT IDENTITY,
+   Street VARCHAR(50) NOT NULL,
+   Number INT NOT NULL,
+   City VARCHAR(50) NOT NULL,
+   PersonId INT NOT NULL,
+   PRIMARY KEY(Id),
+   FOREIGN KEY(PersonId) REFERENCES Person(Id)
+);
