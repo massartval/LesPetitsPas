@@ -57,4 +57,15 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Address.sql" />
+    <Build Include="Bus.sql" />
+    <Build Include="Child.sql" />
+    <Build Include="Guide.sql" />
+    <Build Include="Parent.sql" />
+    <Build Include="Passanger.sql" />
+    <Build Include="Person.sql" />
+    <Build Include="Staff.sql" />
+    <Build Include="Trusted.sql" />
+  </ItemGroup>
 </Project>
