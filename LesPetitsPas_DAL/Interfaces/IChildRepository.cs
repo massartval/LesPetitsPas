@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LesPetitsPas_DAL.Interfaces
 {
-    internal interface IChild
+    internal interface IChildRepository
     {
         public IEnumerable<Child> Get();
         public Child Get(int id);
