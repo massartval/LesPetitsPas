@@ -1,4 +1,6 @@
+using LesPetitsPas_DAL.Interfaces;
 using Tools.Ado;
+using LesPetitsPas_DAL.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient(c => new Connection(
     builder.Configuration.GetConnectionString("default")
     ));
+
+builder.Services.AddScoped<IChildRepository, ChildRepository>();
 
 var app = builder.Build();
 
