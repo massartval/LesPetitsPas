@@ -11,7 +11,7 @@ namespace LesPetitsPas_DAL.Interfaces
     {
         //public IEnumerable<Person> Get();
         public Person Get(int id);
-        public Person Create();
+        public Person Create(Person person);
         //public Person Delete(int id);
 
 
