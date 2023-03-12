@@ -9,6 +9,7 @@ namespace LesPetitsPas_DAL.Models
 {
     internal class Address
     {
+        
         public int ID { get; set; }
         public string Street { get; set; }
         public int Number { get; set; }

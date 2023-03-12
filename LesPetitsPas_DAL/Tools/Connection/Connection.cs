@@ -10,6 +10,8 @@ namespace Tools.Ado
     {
         private readonly string _connectionString;
 
+        public string ConnectionString => _connectionString;
+
         public Connection(string connectionString)
         {
             _connectionString = connectionString;
@@ -17,7 +19,7 @@ namespace Tools.Ado
 
         public int ExecuteNonQuery(Command command)
         {
-            using(SqlConnection sqlConnection = CreateConnection(_connectionString))
+            using(SqlConnection sqlConnection = CreateConnection(ConnectionString))
             {
                 using(SqlCommand sqlCommand = CreateCommand(sqlConnection, command)) 
                 {
@@ -30,7 +32,7 @@ namespace Tools.Ado
 
         public object? ExecuteScalar(Command command)
         {
-            using (SqlConnection sqlConnection = CreateConnection(_connectionString))
+            using (SqlConnection sqlConnection = CreateConnection(ConnectionString))
             {
                 using (SqlCommand sqlCommand = CreateCommand(sqlConnection, command))
                 {
@@ -45,7 +47,7 @@ namespace Tools.Ado
 
         public DataTable GetDataTable(Command command)
         {
-            using (SqlConnection sqlConnection = CreateConnection(_connectionString))
+            using (SqlConnection sqlConnection = CreateConnection(ConnectionString))
             {
                 using (SqlCommand sqlCommand = CreateCommand(sqlConnection, command))
                 {
@@ -67,7 +69,7 @@ namespace Tools.Ado
 
             using (SqlConnection sqlConnection = new SqlConnection())
             {
-                sqlConnection.ConnectionString = _connectionString;
+                sqlConnection.ConnectionString = ConnectionString;
 
                 using (SqlCommand sqlCommand = CreateCommand(sqlConnection, command))
                 {

@@ -1,8 +1,17 @@
+using LesPetitsPas_DAL.Interfaces;
+using LesPetitsPas_DAL.Repositories;
 using Tools.Ado;
 
 var builder = WebApplication.CreateBuilder(args);
 
+IConfiguration configuration = builder.Configuration;
 // Add services to the container.
+builder.Services.AddHttpClient("Api", client =>
+{
+    client.BaseAddress = new Uri(configuration["Api"]);
+});
+builder.Services.AddScoped<IBusRepository,BusRepository>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -13,6 +22,9 @@ builder.Services.AddTransient(c => new Connection(
     ));
 
 var app = builder.Build();
+
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

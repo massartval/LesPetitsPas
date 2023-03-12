@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LesPetitsPas_DAL.Models
 {
-    internal class Bus
+    public class Bus
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public DateTime DateTime { get; set; }
     }
 }

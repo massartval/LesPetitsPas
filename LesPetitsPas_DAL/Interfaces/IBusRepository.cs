@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace LesPetitsPas_DAL.Interfaces
 {
-    internal interface IBusRepository
+    public interface IBusRepository
     {
         public IEnumerable<Bus> Get();
         public Bus Get(int id);
-        public Bus Create();
+        public Bus Create(Bus bus);
         public Bus Delete(int id);
+        
     }
 }
