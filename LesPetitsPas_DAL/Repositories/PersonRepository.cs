@@ -4,7 +4,7 @@ using Tools.Ado;
 
 namespace LesPetitsPas_DAL.Repositories
 {
-    internal class PersonRepository : IPersonRepository
+    public class PersonRepository : IPersonRepository
     {
         private Connection _connection;
 
@@ -18,38 +18,35 @@ namespace LesPetitsPas_DAL.Repositories
             string sql = "SELECT * FROM [Person] WHERE [Id] = @id";
             Command command = new Command(sql, false);
             command.AddParameter("id", id);
-            return (Person)_connection.ExecuteReader(command, reader => new Person()
+            return _connection.ExecuteReader(command, reader => new Person()
             {
-                Id = (int)reader["Id"],
+                Id = id,
                 FirstName = (string)reader["FirstName"],
                 LastName = (string)reader["LastName"],
                 Email = (string)reader["Email"],
-                AddressID = (int)reader["AddressId"],
                 Phone1 = (string)reader["Phone1"],
                 Phone2 = (string)reader["Phone2"],
-            });
+            }).First();
         }
 
         public Person Create(Person person)
         {
-            string sql = "INSERT INTO [Person]([FirstName], [LastName], [Email], [AddressId], [Phone1], [Phone2]) OUTPUT [inserted].* VALUES(@firstName, @lastName, @email, @addressId, @phone1, @phone2)";
+            string sql = "INSERT INTO [Person]([FirstName], [LastName], [Email], [Phone1], [Phone2]) OUTPUT [inserted].* VALUES(@firstName, @lastName, @email, @phone1, @phone2)";
             Command command = new Command(sql, false);
             command.AddParameter("firstName", person.FirstName);
             command.AddParameter("lastName", person.LastName);
             command.AddParameter("email", person.Email);
-            command.AddParameter("addressId", person.AddressID);
             command.AddParameter("phone1", person.Phone1);
             command.AddParameter("phone2", person.Phone2);
-            return (Person)_connection.ExecuteReader(command, reader => new Person()
+            return _connection.ExecuteReader(command, reader => new Person()
             {
                 Id = (int)reader["Id"],
                 FirstName = (string)reader["FirstName"],
                 LastName = (string)reader["LastName"],
                 Email = (string)reader["Email"],
-                AddressID = (int)reader["AddressId"],
                 Phone1 = (string)reader["Phone1"],
                 Phone2 = (string)reader["Phone2"],
-            });
+            }).Single();
         }
         public int MakeTrusted(int ParentId, int PersonId)
         {

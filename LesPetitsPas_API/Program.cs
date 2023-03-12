@@ -1,3 +1,5 @@
+using LesPetitsPas_DAL.Interfaces;
+using LesPetitsPas_DAL.Repositories;
 using Tools.Ado;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient(c => new Connection(
     builder.Configuration.GetConnectionString("default")
     ));
-
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
