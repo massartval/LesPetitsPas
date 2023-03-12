@@ -5,5 +5,5 @@
    BirthDate DATE NOT NULL,
    ParentId INT NOT NULL,
    FOREIGN KEY(ParentId) REFERENCES Parent(Id), 
-    CONSTRAINT [PK_Child] PRIMARY KEY ([Id])
+   CONSTRAINT [PK_Child] PRIMARY KEY ([Id])
 );
