@@ -7,11 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\**" />
+    <Content Remove="Controllers\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <None Remove="Controllers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+<<<<<<< HEAD
+=======
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
   <ItemGroup>
+>>>>>>> 575311a850e15a587e40c8a926e49d8966ff1b8e
     <ProjectReference Include="..\LesPetitsPas_DAL\LesPetitsPas_DAL.csproj" />
   </ItemGroup>
 

@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace LesPetitsPas_DAL.Models
 {
-    internal class Child
+    public class Child
     {
         public int ID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
+
+        public int ParentId { get; set; }
         // voir si bon type pour BirthDate
         public DateTime BirthDate { get; set; }
     }

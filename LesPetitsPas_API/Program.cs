@@ -1,6 +1,10 @@
 using LesPetitsPas_DAL.Interfaces;
+<<<<<<< HEAD
 using LesPetitsPas_DAL.Repositories;
+=======
+>>>>>>> 575311a850e15a587e40c8a926e49d8966ff1b8e
 using Tools.Ado;
+using LesPetitsPas_DAL.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +25,8 @@ builder.Services.AddTransient(c => new Connection(
     builder.Configuration.GetConnectionString("default")
     ));
 
+builder.Services.AddScoped<IChildRepository, ChildRepository>();
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 var app = builder.Build();
 
 
